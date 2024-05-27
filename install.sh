@@ -12,11 +12,10 @@ echo "ZSH_THEME='nanotech'" | sudo tee -a ~/.zshrc
 zsh
 echo zshrc | sudo tee -a ~/.zshrc
 # VERSIONING
-export TF_VERSION=1.0.3
-export TASK_VERSION=3.6.0
+export TASK_VERSION=3.37.2
 
 # Taskfile Installation
-wget -O /tmp/task.tar.gz https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_${OS}_${ARCH}.tar.gz && \
+wget -O /tmp/task.tar.gz https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_linux_amd64.tar.gz && \
  tar -C /usr/bin/ -xvf /tmp/task.tar.gz && \
  rm -rf /tmp/gotty.tar.gzln
 
@@ -27,8 +26,5 @@ curl https://sdk.cloud.google.com > /tmp/install.sh \
  && /bin/bash -c 'source /usr/local/google-cloud-sdk/path.bash.inc' \
  && ln -s /usr/local/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud
 
-# Docker Install
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sleep 2
-sudo rm get-docker.sh
+curl -fsSL https://code-server.dev/install.sh | sh -s -- --method=standalone --prefix=/tmp/code-server --version 4.11.0 \
+                                              /tmp/code-server/bin/code-server --auth none --port 13337 >/tmp/code-server.log 2>&1 &
