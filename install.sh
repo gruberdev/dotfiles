@@ -17,7 +17,7 @@ export TASK_VERSION=3.37.2
 # Taskfile Installation
 wget -O /tmp/task.tar.gz https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_linux_amd64.tar.gz && \
  tar -C /usr/bin/ -xvf /tmp/task.tar.gz && \
- rm -rf /tmp/gotty.tar.gzln
+ rm -rf /tmp/gotty.tar.gz
 
 # Google Cloud SDK
 curl https://sdk.cloud.google.com > /tmp/install.sh \
